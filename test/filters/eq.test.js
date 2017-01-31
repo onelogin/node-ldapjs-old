@@ -196,3 +196,18 @@ test('GH-277 objectClass should be case-insensitive', function (t) {
   t.ok(!f.matches({ objectclass: 'matchless' }));
   t.end();
 });
+
+// OneLogin VLDAP requirements below
+test('All attributes must be case insensitive', function (t) {
+  var f = new EqualityFilter({
+    attribute: 'mail',
+    value: 'test@test.com'
+  });
+  t.ok(f);
+  t.ok(f.matches({ mail: 'test@test.com' }));
+  t.ok(f.matches({ mail: 'test@TEST.com' }));
+  t.ok(f.matches({ mail: 'teSt@test.com' }));
+  t.ok(f.matches({ MAIL: 'teSt@test.com' }));
+  t.ok(!f.matches({ mail: 'TESTTTTT@TEST.com' }));
+  t.end();
+});
