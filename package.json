@@ -32,7 +32,7 @@
     "asn1": "0.2.2",
     "assert-plus": "0.1.5",
     "bunyan": "1.4.0",
-    "dashdash": "1.10.0",
+    "dashdash": "1.14.1",
     "backoff": "2.4.1",
     "ldap-filter": "0.2.2",
     "once": "1.3.2",
